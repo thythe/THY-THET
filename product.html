@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ហាងលក់ទូរសព្ទ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header >
+    <div class="container">
+      <div class="logo-area">
+        <img src="/Channa.jpg" alt="Site Logo" class="logo" />
+        <h1>ជាងភាន លក់ទូរស័ព្ទទូរស័ព្ទទំនើប</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="products">
+    <input type="text" id="productSearch" placeholder="ស្វែងរកផលិតផល..." oninput="filterProducts()">
+
+    <div class="product-slider" id="productSlider">
+      <!-- បង្ហាញរូបខ្លួនឯងជាផលិតផល -->
+      <div class="product">
+        <img src="/16pro12.jpg" alt="រូបទី១">
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro13.jpg" alt="រូបទី២">
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro14.jpg" alt="រូបទី២">
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro15.jpg" alt="រូបទី២">
+      
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro16.jpg" alt="រូបទី៣">
+       
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro17.jpg" alt="រូបទី៣">
+        
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro5.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro6.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro7.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro8.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro9.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro10.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+      <div class="product">
+        <img src="/16pro11.jpg" alt="រូបទី៣">
+        <h3>ឧបករណ៍ ៣</h3>
+        <p>$149</p>
+        <button>បន្ថែមទៅរទេះ 🛒</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ជាងភានហាងលក់ទូរស័ព្ទ</p>
+  </footer>
+<script>
+  // Fade-in effect for logo
+  window.addEventListener("load", () => {
+    const logo = document.querySelector('.logo');
+    logo.style.opacity = 0;
+    logo.style.transition = 'opacity 1s ease-in-out';
+    setTimeout(() => {
+      logo.style.opacity = 1;
+    }, 200);
+  });
+</script>
+
+  <script>
+    function filterProducts() {
+      const searchTerm = document.getElementById('productSearch').value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const name = product.querySelector('h3');
+        if (!name || !name.textContent) {
+          product.style.display = 'none';
+          return;
+        }
+        const text = name.textContent.toLowerCase();
+        const match = text.includes(searchTerm);
+        product.style.display = match ? '' : 'none';
+      });
+    }
+
+    function scrollSlider(direction) {
+      const scrollAmount = 300;
+      document.getElementById('productSlider').scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    // បង្វិលស្វ័យប្រវត្តិ
+    setInterval(() => {
+      scrollSlider(1);
+    }, 4000);
+  </script>
+</body>
+
+</html>
